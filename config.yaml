@@ -1,0 +1,187 @@
+# EDA Project Configuration
+
+# Project Settings
+project:
+  name: "Exploratory Data Analysis"
+  version: "1.0.0"
+  description: "Customer Purchase Behavior Analysis"
+  author: "Data Analysis Team"
+  created_date: "2026-06-01"
+
+# Data Configuration
+data:
+  raw_data_path: "data/raw_data.csv"
+  processed_data_path: "data/processed_data.csv"
+  encoding: "utf-8"
+  delimiter: ","
+  
+# Analysis Parameters
+analysis:
+  correlation_method: "pearson"  # Options: pearson, spearman, kendall
+  outlier_method: "iqr"          # Options: iqr, zscore
+  outlier_threshold: 1.5
+  significance_level: 0.05
+  
+  # Clustering
+  clustering:
+    method: "kmeans"
+    n_clusters: 3
+    random_state: 42
+    
+  # Feature Engineering
+  features:
+    engineer_tenure: true
+    engineer_ratios: true
+    engineer_interactions: false
+
+# Preprocessing Settings
+preprocessing:
+  handle_missing: true
+  missing_strategy: "drop"  # Options: drop, mean, median
+  remove_duplicates: true
+  normalize_numeric: false
+  standardize_numeric: false
+  encode_categorical: false
+  encode_method: "label"  # Options: label, onehot
+
+# Visualization Settings
+visualization:
+  output_dir: "reports/figures"
+  dpi: 300
+  figure_format: "png"
+  figure_style: "whitegrid"
+  
+  # Default figure sizes
+  figsize:
+    small: [8, 5]
+    medium: [12, 6]
+    large: [15, 10]
+  
+  # Colors
+  colors:
+    primary: "#1f77b4"
+    secondary: "#ff7f0e"
+    success: "#2ca02c"
+    warning: "#d62728"
+    info: "#17becf"
+    
+  # Plot configurations
+  plots:
+    distribution:
+      bins: 30
+      alpha: 0.7
+    correlation_heatmap:
+      cmap: "coolwarm"
+      annotate: true
+    scatter:
+      alpha: 0.6
+      s: 50
+
+# Columns Configuration
+columns:
+  numeric:
+    - "Age"
+    - "Monthly_Spending"
+    - "Annual_Income"
+    - "Email_Frequency"
+    - "Purchase_Frequency"
+    
+  categorical:
+    - "Gender"
+    - "Region"
+    - "Churn_Status"
+    
+  identifier:
+    - "Customer_ID"
+    - "Customer_Since"
+
+# Report Configuration
+report:
+  title: "Exploratory Data Analysis Report"
+  subtitle: "Customer Purchase Behavior Dataset"
+  include_sections:
+    - "executive_summary"
+    - "data_understanding"
+    - "univariate_analysis"
+    - "bivariate_analysis"
+    - "multivariate_analysis"
+    - "insights_recommendations"
+  
+  # Report appearance
+  theme: "default"
+  include_visualizations: true
+  include_code: false
+  include_appendix: true
+
+# Logging Configuration
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  file: "logs/analysis.log"
+  console_output: true
+
+# Performance Settings
+performance:
+  n_jobs: -1  # Number of parallel jobs (-1 = all cores)
+  cache_results: true
+  progress_bar: true
+
+# Export Settings
+export:
+  csv: true
+  excel: true
+  json: true
+  html: true
+  
+  csv_options:
+    sep: ","
+    index: true
+    
+  excel_options:
+    engine: "openpyxl"
+    sheet_name: "Data"
+
+# Model Training (if applicable)
+model:
+  random_state: 42
+  test_size: 0.2
+  cross_validation_folds: 5
+  hyperparameter_tuning: false
+
+# Directories
+directories:
+  data: "data"
+  notebooks: "notebooks"
+  scripts: "scripts"
+  reports: "reports"
+  figures: "reports/figures"
+  logs: "logs"
+  config: "config"
+  output: "output"
+
+# Email/Notification Settings (if applicable)
+notifications:
+  email_on_completion: false
+  email_on_error: false
+  slack_webhook: null
+
+# Advanced Settings
+advanced:
+  memory_efficient: true
+  use_gpu: false
+  parallel_processing: true
+  verbose: true
+  save_intermediate_results: true
+
+# Version Control
+version_control:
+  git_enabled: true
+  auto_commit: false
+  commit_message_prefix: "[EDA]"
+
+# Documentation
+documentation:
+  generate_readme: true
+  generate_data_dictionary: true
+  include_method_descriptions: true
+  include_formula_explanations: true
